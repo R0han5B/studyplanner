@@ -1,141 +1,323 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+# AI Study Planner, Productivity Coach, and Career Development Platform
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+A production-ready SaaS application similar to Notion, Linear, or Stripe dashboards.
 
-## ✨ Technology Stack
+## 🚀 Features
 
-This scaffold provides a robust foundation built with:
+### Core Modules
 
-### 🎯 Core Framework
-- **⚡ Next.js 16** - The React framework for production with App Router
-- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
-- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+1. **AI Study Planner** - AI-powered study scheduling with calendar integration
+2. **Task Manager** - Drag-and-drop task management with filtering
+3. **Productivity Tracker** - Pomodoro timer and focus session tracking
+4. **AI Insights** - AI-powered recommendations and learning analysis
+5. **Analytics Dashboard** - Comprehensive charts and progress tracking
+6. **Settings** - User profile, theme, and preferences management
 
-### 🧩 UI Components & Styling
-- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
-- **🎯 Lucide React** - Beautiful & consistent icon library
-- **🌈 Framer Motion** - Production-ready motion library for React
-- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
+### UI/UX Features
 
-### 📋 Forms & Validation
-- **🎣 React Hook Form** - Performant forms with easy validation
-- **✅ Zod** - TypeScript-first schema validation
-
-### 🔄 State Management & Data Fetching
-- **🐻 Zustand** - Simple, scalable state management
-- **🔄 TanStack Query** - Powerful data synchronization for React
-- **🌐 Fetch** - Promise-based HTTP request
-
-### 🗄️ Database & Backend
-- **🗄️ Prisma** - Next-generation TypeScript ORM
-- **🔐 NextAuth.js** - Complete open-source authentication solution
-
-### 🎨 Advanced UI Features
-- **📊 TanStack Table** - Headless UI for building tables and datagrids
-- **🖱️ DND Kit** - Modern drag and drop toolkit for React
-- **📊 Recharts** - Redefined chart library built with React and D3
-- **🖼️ Sharp** - High performance image processing
-
-### 🌍 Internationalization & Utilities
-- **🌍 Next Intl** - Internationalization library for Next.js
-- **📅 Date-fns** - Modern JavaScript date utility library
-- **🪝 ReactUse** - Collection of essential React hooks for modern development
-
-## 🎯 Why This Scaffold?
-
-- **🏎️ Fast Development** - Pre-configured tooling and best practices
-- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
-- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
-- **📱 Responsive** - Mobile-first design principles with smooth animations
-- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
-- **🔐 Auth Included** - NextAuth.js for secure authentication flows
-- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
-- **🌍 i18n Ready** - Multi-language support with Next Intl
-- **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
-
-## 🚀 Quick Start
-
-```bash
-# Install dependencies
-bun install
-
-# Start development server
-bun run dev
-
-# Build for production
-bun run build
-
-# Start production server
-bun start
-```
-
-Open [http://localhost:3000](http://localhost:3000) to see your application running.
-
-## 🤖 Powered by Z.ai
-
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
-
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
-
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+- ✅ Modern SaaS-style dashboard design
+- ✅ Dark/Light mode with system preference
+- ✅ Smooth Framer Motion animations
+- ✅ Responsive layout with collapsible sidebar
+- ✅ Card-based UI with professional spacing
+- ✅ Loading skeletons and error states
+- ✅ Toast notifications
 
 ## 📁 Project Structure
 
 ```
 src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-│   └── ui/             # shadcn/ui components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions and configurations
+├── app/
+│   ├── page.tsx              # Main application page
+│   ├── layout.tsx            # Root layout with theme provider
+│   ├── globals.css           # Global styles and CSS variables
+│   └── api/
+│       ├── auth/
+│       │   ├── login/route.ts
+│       │   ├── register/route.ts
+│       │   ├── logout/route.ts
+│       │   └── me/route.ts
+│       ├── tasks/route.ts
+│       ├── schedule/route.ts
+│       ├── productivity/route.ts
+│       ├── analytics/route.ts
+│       └── ai/insights/route.ts
+├── components/
+│   ├── layout/
+│   │   ├── Sidebar.tsx       # Navigation sidebar
+│   │   └── Navbar.tsx        # Top navigation bar
+│   ├── pages/
+│   │   ├── LoginPage.tsx
+│   │   ├── DashboardPage.tsx
+│   │   ├── TaskManagerPage.tsx
+│   │   ├── StudyPlannerPage.tsx
+│   │   ├── ProductivityPage.tsx
+│   │   ├── AIInsightsPage.tsx
+│   │   ├── AnalyticsPage.tsx
+│   │   └── SettingsPage.tsx
+│   └── ui/                   # Shadcn UI components
+├── lib/
+│   ├── auth.ts               # JWT authentication utilities
+│   ├── api.ts                # API client utilities
+│   ├── db.ts                 # Prisma client
+│   └── utils.ts              # Utility functions
+├── store/
+│   └── useStore.ts           # Zustand global state
+└── hooks/
+    ├── use-mobile.ts
+    └── use-toast.ts
+
+prisma/
+└── schema.prisma             # Database schema
 ```
 
-## 🎨 Available Features & Components
+## 🛠 Tech Stack
 
-This scaffold includes a comprehensive set of modern web development tools:
+### Frontend
+- **Next.js 16** with App Router
+- **React 19** with TypeScript
+- **TailwindCSS** for styling
+- **Shadcn UI** components
+- **Framer Motion** for animations
+- **Recharts** for data visualization
+- **Zustand** for state management
+- **dnd-kit** for drag-and-drop
 
-### 🧩 UI Components (shadcn/ui)
-- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
-- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
-- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
-- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
-- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
-- **Data Display**: Badge, Avatar, Calendar
+### Backend
+- **Next.js API Routes**
+- **Prisma ORM** with SQLite (easily switchable to PostgreSQL)
+- **JWT** authentication with jose library
+- **bcryptjs** for password hashing
 
-### 📊 Advanced Data Features
-- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
-- **Charts**: Beautiful visualizations with Recharts
-- **Forms**: Type-safe forms with React Hook Form + Zod validation
+### AI Integration
+- **z-ai-web-dev-sdk** for AI-powered insights
 
-### 🎨 Interactive Features
-- **Animations**: Smooth micro-interactions with Framer Motion
-- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
-- **Theme Switching**: Built-in dark/light mode support
+## 🗄 Database Schema
 
-### 🔐 Backend Integration
-- **Authentication**: Ready-to-use auth flows with NextAuth.js
-- **Database**: Type-safe database operations with Prisma
-- **API Client**: HTTP requests with Fetch + TanStack Query
-- **State Management**: Simple and scalable with Zustand
+### Users
+- id, email, password, name, avatar
+- role, refreshToken, timezone, theme
+- Relations: tasks, studySessions, productivityLogs, skills, schedules
 
-### 🌍 Production Features
-- **Internationalization**: Multi-language support with Next Intl
-- **Image Optimization**: Automatic image processing with Sharp
-- **Type Safety**: End-to-end TypeScript with Zod validation
-- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
+### Tasks
+- id, title, description, status, priority
+- dueDate, completedAt, subject, tags
+- order, estimatedMinutes, actualMinutes
 
-## 🤝 Get Started with Z.ai
+### Study Sessions
+- id, subject, topic, startTime, endTime
+- duration, focusScore, notes, productivity
 
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
+### Productivity Logs
+- id, date, studyHours, tasksCompleted
+- focusScore, pomodoroSessions, peakHours, mood
 
----
+### Skills
+- id, name, category, level, progress, targetLevel
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+### Schedules
+- id, title, subject, startDate, endDate
+- hoursPerDay, difficulty, priority, scheduleData
+
+### Focus Sessions
+- id, type, duration, startedAt, endedAt
+- completed, interrupted, task
+
+## 🔐 Authentication Flow
+
+1. **Registration**: POST `/api/auth/register`
+   - Validates email and password
+   - Creates user with hashed password
+   - Returns JWT tokens in HTTP-only cookies
+
+2. **Login**: POST `/api/auth/login`
+   - Validates credentials
+   - Returns JWT access token (15 min) and refresh token (7 days)
+   - Stores tokens in HTTP-only cookies
+
+3. **Token Refresh**: Automatic via middleware
+   - Access token expires in 15 minutes
+   - Refresh token generates new access token
+
+4. **Logout**: POST `/api/auth/logout`
+   - Clears tokens from cookies and database
+
+## 🎨 Theme System
+
+The application supports dark/light mode:
+- System preference detection
+- Manual toggle in sidebar
+- Persisted in localStorage via Zustand
+
+## 📱 API Endpoints
+
+### Authentication
+```
+POST /api/auth/register - Create new account
+POST /api/auth/login - Authenticate user
+POST /api/auth/logout - Sign out user
+GET  /api/auth/me - Get current user
+```
+
+### Tasks
+```
+GET  /api/tasks - Get all tasks (with filters)
+POST /api/tasks - Create task
+PUT  /api/tasks/[id] - Update task
+DELETE /api/tasks/[id] - Delete task
+```
+
+### Schedule
+```
+GET  /api/schedule - Get all schedules
+POST /api/schedule - Generate AI schedule
+```
+
+### Productivity
+```
+GET  /api/productivity - Get productivity stats
+POST /api/productivity - Log productivity data
+```
+
+### Analytics
+```
+GET  /api/analytics - Get analytics overview
+```
+
+### AI Insights
+```
+POST /api/ai/insights - Generate AI recommendations
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- Bun (recommended) or npm
+
+### Installation
+
+```bash
+# Install dependencies
+bun install
+
+# Set up database
+bunx prisma db push
+
+# Run development server
+bun run dev
+```
+
+### Environment Variables
+
+Create a `.env` file:
+```env
+DATABASE_URL="file:./db/custom.db"
+JWT_SECRET="your-super-secret-key-change-in-production"
+```
+
+### Demo Account
+- Email: `demo@studyai.com`
+- Password: `demo12345`
+
+## 🎯 Key Features Implemented
+
+### Dashboard
+- Welcome banner with personalized greeting
+- Stats cards (study hours, tasks, streak, focus score)
+- Weekly activity chart
+- Subject progress bars
+- Recent activity timeline
+- Upcoming tasks
+- AI recommendations
+
+### Study Planner
+- Interactive calendar
+- AI schedule generation
+- Session management
+- Subject filtering
+- Time-based scheduling
+
+### Task Manager
+- Drag-and-drop reordering
+- Status filtering (pending, in-progress, completed)
+- Priority levels with color coding
+- Due date tracking with overdue detection
+- Task creation dialog
+
+### Productivity Tracker
+- Pomodoro timer (25/5/15 minute cycles)
+- Circular progress indicator
+- Session counter
+- Weekly activity heatmap
+- Quick action buttons
+
+### AI Insights
+- Personalized learning recommendations
+- Learning style analysis
+- Subject-specific suggestions
+- AI chat interface
+
+### Analytics Dashboard
+- Study hours trends
+- Subject distribution pie chart
+- Skill radar chart
+- Completion rate tracking
+- Weekly insights
+
+### Settings
+- Profile management
+- Notification preferences
+- Theme selection
+- Pomodoro settings
+- Study goals configuration
+
+## 🔧 Configuration
+
+### Customizing Timer Settings
+Edit the `TIMER_SETTINGS` constant in `ProductivityPage.tsx`:
+```typescript
+const TIMER_SETTINGS = {
+  work: 25 * 60,      // Focus duration
+  shortBreak: 5 * 60, // Short break
+  longBreak: 15 * 60, // Long break after 4 sessions
+};
+```
+
+### Adding New Subjects
+Update the `subjects` array in `StudyPlannerPage.tsx`:
+```typescript
+const subjects = ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'History'];
+```
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+bun run build
+```
+
+### Docker Support
+Create a `Dockerfile`:
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npx prisma generate
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+## 📄 License
+
+MIT License - feel free to use for personal or commercial projects.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
